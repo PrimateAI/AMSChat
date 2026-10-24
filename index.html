@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AMSChat</title>
+  <meta name="description" content="Chat with a Qwen3.5-9B model running on a home PC.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2 12h4l2-6 4 12 3-9 2 3h5' fill='none' stroke='%233554d1' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2-6 4 12 3-9 2 3h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <div>
+        <h1>AMSChat</h1>
+        <p class="sub">Qwen3.5-9B, running on a home PC</p>
+      </div>
+    </div>
+    <div class="right">
+      <span id="status" class="status checking" role="status">checking…</span>
+      <button id="new-chat" class="ghost" title="Start a new conversation">New chat</button>
+    </div>
+  </header>
+
+  <main id="chat" class="chat" aria-live="polite">
+    <section id="welcome" class="welcome">
+      <h2>Ask anything</h2>
+      <p>This chatbot runs on one person's computer, so it is only online while that PC is on, and it handles two chats at a time.</p>
+      <div class="chips">
+        <button class="chip">Explain SerDes in simple terms</button>
+        <button class="chip">What does a CML driver do?</button>
+        <button class="chip">Write a haiku about chip design</button>
+      </div>
+      <p class="fine">Answers can be wrong; check anything important. Messages pass through the owner's PC and are not stored by this page.</p>
+    </section>
+  </main>
+
+  <form id="composer" class="composer">
+    <label class="think" title="Let the model reason before answering: better on hard questions, slower">
+      <input id="think" type="checkbox"> Think first
+    </label>
+    <textarea id="input" rows="1" placeholder="Message AMSChat…" aria-label="Message"></textarea>
+    <button id="send" type="submit" class="primary" aria-label="Send">Send</button>
+  </form>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
