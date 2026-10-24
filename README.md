@@ -4,6 +4,9 @@ A small chat page for a Qwen3.5-9B model that runs on a home PC with
 [llama.cpp](https://github.com/ggml-org/llama.cpp). This repo is only the static web page,
 served by GitHub Pages at **https://primateai.github.io/AMSChat**; the model and server stay
 on the owner's computer and are reached through a Tailscale Funnel address set in `config.js`.
+That address serves the AMSChat agent, which lets the model call SerDes design tools (link budget,
+driver and pad sizing, CTLE, DFE timing, PLL, CDR) from
+[serdes-agent](https://github.com/PrimateAI) running on the same PC.
 
 - Streams replies, with an optional "Think first" mode that shows the model's reasoning.
 - Shows when the host PC is offline; at most two chats run at once.
