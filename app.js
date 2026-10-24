@@ -131,11 +131,15 @@ async function send(text) {
           if (!thoughtsEl) {
             thoughtsEl = document.createElement('details');
             thoughtsEl.className = 'thoughts';
-            thoughtsEl.innerHTML = '<summary>Thinking…</summary><div></div>';
+            thoughtsEl.innerHTML = '<summary>Working…</summary><div></div>';
             wrap.insertBefore(thoughtsEl, bubble);
           }
           thoughts += delta.reasoning_content;
-          thoughtsEl.lastChild.textContent = thoughts;
+          thoughtsEl.lastChild.textContent = thoughts.trim();
+          if (delta.reasoning_content.includes('🔧')) {     // a tool started: keep the steps visible
+            thoughtsEl.open = true;
+            thoughtsEl.firstChild.textContent = 'Running SerDes tools…';
+          }
         }
         if (delta.content) {
           answer += delta.content;
@@ -145,7 +149,10 @@ async function send(text) {
       }
       chat.scrollTop = chat.scrollHeight;
     }
-    if (thoughtsEl) thoughtsEl.firstChild.textContent = 'Thoughts';
+    if (thoughtsEl) {
+      const used = [...new Set([...thoughts.matchAll(/🔧 (\w+)\(/g)].map(m => m[1]))];
+      thoughtsEl.firstChild.textContent = used.length ? `Used ${used.join(', ')}` : 'Thoughts';
+    }
     history.push({ role: 'assistant', content: answer });
     const secs = (performance.now() - started) / 1000;
     const meta = document.createElement('div');

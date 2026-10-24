@@ -59,7 +59,7 @@ h1 { font-size: 17px; margin: 0; }
 .bubble ul, .bubble ol { margin: 4px 0 8px; padding-left: 22px; }
 details.thoughts { font-size: 13px; color: var(--muted); max-width: min(640px, 92%); }
 details.thoughts summary { cursor: pointer; }
-details.thoughts div { white-space: pre-wrap; padding: 6px 0 0 14px; border-left: 2px solid var(--border); }
+details.thoughts div { white-space: pre-wrap; padding: 6px 0 0 14px; border-left: 2px solid var(--border); font-family: var(--mono); font-size: 12px; }
 .meta { font-size: 12px; color: var(--muted); }
 .error { color: var(--bad); }
 .cursor::after { content: "▍"; animation: blink 1s steps(2) infinite; color: var(--muted); }

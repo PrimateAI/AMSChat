@@ -14,7 +14,7 @@
       <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2-6 4 12 3-9 2 3h5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
       <div>
         <h1>AMSChat</h1>
-        <p class="sub">Qwen3.5-9B, running on a home PC</p>
+        <p class="sub">Qwen3.5-9B + SerDes design tools, running on a home PC</p>
       </div>
     </div>
     <div class="right">
@@ -25,12 +25,14 @@
 
   <main id="chat" class="chat" aria-live="polite">
     <section id="welcome" class="welcome">
-      <h2>Ask anything</h2>
-      <p>This chatbot runs on one person's computer, so it is only online while that PC is on, and it handles two chats at a time.</p>
+      <h2>Ask about SerDes and AMS design</h2>
+      <p>For link and circuit questions AMSChat runs real calculations (link budgets, driver and pad sizing, CTLE, DFE timing, PLL and CDR) instead of guessing, and shows each step.</p>
+      <p>It runs on one person's computer, so it is only online while that PC is on, and it handles two chats at a time.</p>
       <div class="chips">
+        <button class="chip">Will a 112G PAM4 link close over a 28 dB channel?</button>
+        <button class="chip">What return loss do 150 fF pads give at 53 GBd?</button>
+        <button class="chip">Size a 4 mA CML driver on a 1.8 V supply</button>
         <button class="chip">Explain SerDes in simple terms</button>
-        <button class="chip">What does a CML driver do?</button>
-        <button class="chip">Write a haiku about chip design</button>
       </div>
       <p class="fine">Answers can be wrong; check anything important. Messages pass through the owner's PC and are not stored by this page.</p>
     </section>
